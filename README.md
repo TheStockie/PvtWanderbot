@@ -1,4 +1,4 @@
-# PvtWanderbot
+# PvtWanderbot    ![logo](https://cdn.discordapp.com/avatars/807240437936554004/8c374795c7d790b36dd6e595ad9bb196.png?size=32)
 Welcome to my Twitch and Discord Bots!
 This has been a small passion project that I want to expand quite a bit in the coming months.
 
