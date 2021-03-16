@@ -44,7 +44,12 @@ This time, no need to add any apostrophes, just write the information!
 # Execution
 You're nearly there! Now open two command prompts and navigate to your source folder.
 ### Discord
-For Discord, navigate to the Discord folder and execute this command:
+For Discord, navigate to the Discord folder and run the following command to install the dependencies:
+```
+pip3 install -r requirements.txt
+```
+
+Once installed, execute this command:
 ```
 python mainDiscord.py
 ```
