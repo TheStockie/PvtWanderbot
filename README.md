@@ -21,7 +21,7 @@ It's current functionality is:
 - Basic Text Commands
 
 # Setup
-Firstly, install [Python 3.9](https://www.python.org/downloads/) and [NodeJS](https://nodejs.org/en/download/) to execute the bots. For ease of use and data protection, this project uses [dotENV](https://github.com/motdotla/dotenv#dotenv) and [Python-dotEnv](https://github.com/theskumar/python-dotenv#python-dotenv) for all the sensitive information!
+Firstly, install [Python 3.9](https://www.python.org/downloads/) and [NodeJS](https://nodejs.org/en/download/) to execute the bots. For ease of use and data protection, this project uses [dotENV](https://github.com/motdotla/dotenv#dotenv) and [Python-dotENV](https://github.com/theskumar/python-dotenv#python-dotenv) for all the sensitive information!
 
 ## Discord
 Create a text file in the Discord folder called .env (No name, only file extension) and open it in a text editor. Inside the .env you must write these variables, with these names and your specific bots information:
