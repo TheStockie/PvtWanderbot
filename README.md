@@ -65,4 +65,4 @@ Now you should have two command prompts, one running each bot and that's it!
 # Fair Use
 This project falls under the MIT License, so you're more than welcome to use, modify and reupload it!
 
-The project does not require you to credit myself as the bot author, but it would be very much appretiated! Have fun and happy streaming!
+The project does not require you to credit myself as the bot author, but it would be very much appreciated! Have fun and happy streaming!
