@@ -7,7 +7,7 @@ Currently, the bots are very bare bones but a good starting point if you don't w
 ### Discord
 The Discord bot is programmed in [Python 3.9](https://www.python.org/downloads/), using the [Discord.py](https://discordpy.readthedocs.io/en/latest/index.html) API wrapper.
 
-It's current functionality is:
+Its current functionality is:
 - Connection to Discord Servers
 - Basic Text Commands
 - Twitch Username ID Parsing (Used for checking if a channel is streaming)
@@ -16,7 +16,7 @@ It's current functionality is:
 ### Twitch
 The Twitch bot is programmed in [NodeJS](https://nodejs.org/en/download/), using the [TMI.js](https://github.com/tmijs/tmi.js) library.
 
-It's current functionality is:
+Its current functionality is:
 - Connection to Twitch Chats
 - Basic Text Commands
 
