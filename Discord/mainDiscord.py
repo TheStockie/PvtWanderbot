@@ -39,17 +39,17 @@ async def change_status():
 # Looping function to check if x channel is streaming and send a message accordingly to a text chat
 @tasks.loop(seconds=120)
 async def check_streaming():
-    global streamingFlag
-    isStreaming = twitch_check.is_streaming(CHANNEL)
+    global streaming_flag
+    streaming_status = twitch_check.is_streaming(CHANNEL)
 
-    if isStreaming == True and streamingFlag == False:
+    if streaming_status == True and streaming_flag == False:
         # Change with your own channel ID and message before getting rid of the comment!
         # await client.get_channel(807227296616153129).send('@everyone Stockie is streaming over at https://twitch.tv/stockiestreams')
-        streamingFlag = True
+        streaming_flag = True
         print('YUP')
 
-    if isStreaming == False:
-        streamingFlag = False
+    if streaming_status == False:
+        streaming_flag = False
         print('NOPE')
 
 # Actually running the bot

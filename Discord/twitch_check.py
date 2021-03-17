@@ -29,8 +29,8 @@ def is_streaming(user):
         print("Error checking user: ", e)
         return
 
-def check_user(user_ID):
-    url = TWITCH_STREAM_API_ENDPOINT.format(user_ID)
+def check_user(user_id):
+    url = TWITCH_STREAM_API_ENDPOINT.format(user_id)
 
     try:
         req = http.request('GET', url, headers=API_HEADERS)
