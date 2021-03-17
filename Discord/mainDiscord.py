@@ -21,8 +21,8 @@ CHANNEL = os.getenv('CHANNEL')
 async def on_ready():
     print('I have arrived with {0.user}'.format(client))
     
-    changeStatus.start()
-    checkStreaming.start()
+    change_status.start()
+    check_streaming.start()
 
 # Call to discordParse.py when message is sent starting with !
 @client.event
@@ -33,12 +33,12 @@ async def on_message(message):
 # Simple presence cycle. Helps with knowing the bot is functioning well
 status = cycle(['Classic', 'Ueda', 'Moment', 'CUM'])
 @tasks.loop(seconds=1)
-async def changeStatus():
+async def change_status():
     await client.change_presence(activity=discord.Game(next(status)))
 
 # Looping function to check if x channel is streaming and send a message accordingly to a text chat
 @tasks.loop(seconds=120)
-async def checkStreaming():
+async def check_streaming():
     global streamingFlag
     isStreaming = twitch_check.is_streaming(CHANNEL)
 
