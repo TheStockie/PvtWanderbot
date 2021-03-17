@@ -28,7 +28,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if(message.content.startswith("!")):
-        await discordParse.parseCommand(message)
+        await discordParse.parse_command(message)
 
 # Simple presence cycle. Helps with knowing the bot is functioning well
 status = cycle(['Classic', 'Ueda', 'Moment', 'CUM'])
@@ -40,7 +40,7 @@ async def changeStatus():
 @tasks.loop(seconds=120)
 async def checkStreaming():
     global streamingFlag
-    isStreaming = twitch_check.isStreaming(CHANNEL)
+    isStreaming = twitch_check.is_streaming(CHANNEL)
 
     if isStreaming == True and streamingFlag == False:
         # Change with your own channel ID and message before getting rid of the comment!

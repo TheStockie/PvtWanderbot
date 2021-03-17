@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Command parser DO NOT TOUCH
-async def parseCommand(message):
+async def parse_command(message):
     parse = message.content.split(' ')
     
     if(len(parse) > 1):
@@ -25,8 +25,8 @@ async def parseCommand(message):
 async def hello(message):
     await message.channel.send("Hello!")
 
-async def isStreaming(message):
-    if twitch_check.isStreaming(os.getenv('CHANNEL')) == True:
+async def is_streaming(message):
+    if twitch_check.is_streaming(os.getenv('CHANNEL')) == True:
         await message.channel.send('YUP')
 
     else:
@@ -40,5 +40,5 @@ async def isStreaming(message):
 
 commandList = {
     "!hello" : hello,
-    "!isStreaming" : isStreaming
+    "!isStreaming" : is_streaming
 }

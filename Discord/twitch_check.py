@@ -17,19 +17,19 @@ API_HEADERS = {
     'Client-ID' : os.getenv('CLIENT_ID')
 }
 
-def isStreaming(user):
+def is_streaming(user):
     url = TWITCH_STREAM_API_GET_USERS.format(user)
 
     try:
         req = http.request('GET', url, headers = API_HEADERS)
         jsondata = json.loads(req.data.decode('utf-8'))
-        return checkUser(jsondata['users'][0]['_id'])
+        return check_user(jsondata['users'][0]['_id'])
 
     except Exception as e:
         print("Error checking user: ", e)
         return
 
-def checkUser(userID):
+def check_user(userID):
     url = TWITCH_STREAM_API_ENDPOINT.format(userID)
 
     try:
