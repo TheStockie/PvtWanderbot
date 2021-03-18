@@ -11,7 +11,7 @@ module.exports = {
 };
 
 // Commands list for the !commands command, command, command...
-var commands = ["!hello, !discord, !commands"];
+var commands = ["!hello, !discord, !commands, !join"];
 
 
 // Command execution
@@ -36,6 +36,9 @@ function exeCommand(client, target, context, commandName){
 
         case "commands":
             client.say(target, `Here are the commands: ${commands}`);
+            break;
+
+        case "join":
             break;
 
         default:
