@@ -2,6 +2,7 @@
 require('dotenv').config();
 const tmi = require('tmi.js');
 const twitchParse = require('./twitchParse');
+const {exec} = require('child_process');
 
 // Connection options
 const opts = {

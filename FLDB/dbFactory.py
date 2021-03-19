@@ -14,30 +14,30 @@ def clear_db(db):
     if are_you_really_sure_about_this == True:
         db.truncate()
 
-# Give user_id; create default user
-# [Int user_id, Int points, Float lastWatched, Int totalGain, Int totalLoss, Int netProfit, Int percentNetProfit, Float lastCommand (used as a flag), Int timesUsed (one per command)]
-def create_user(user_id, db):
+# Give username; create default user
+# [Int username, Int points, Float lastWatched, Int totalGain, Int totalLoss, Int netProfit, Int percentNetProfit, Float lastCommand (used as a flag), Int timesUsed (one per command)]
+def create_user(username, db):
     time_now = utc_to_unix(datetime.now())
     back_in_time = utc_to_unix(datetime(2000, 1, 1, 0, 0, 0))
-    if not db.contains(Query().user_id == user_id):
+    if not db.contains(Query().username == username):
         # TO-DO: Add flags for each command
-        db.insert({'user_id': user_id, 'points': 100, 'last_watched': time_now, 'total_gain': 0, 'total_loss': 0, 'net_profit': 0, 'percent_net_profit': 0, 'last_command': back_in_time})
+        db.insert({'username': username, 'points': 100, 'last_watched': time_now, 'total_gain': 0, 'total_loss': 0, 'net_profit': 0, 'percent_net_profit': 0, 'last_command': back_in_time})
 
-# Give user_id; remove user
-def remove_user(user_id, db):
-    db.remove(Query().user_id == user_id)
+# Give username; remove user
+def remove_user(username, db):
+    db.remove(Query().username == username)
 
-# Give user_id, parameter and value; update user_id's parameter with value with time parsing
-def update_parameter(user_id, parameter, value, db):
+# Give username, parameter and value; update username's parameter with value with time parsing
+def update_parameter(username, parameter, value, db):
     if type(parameter) is datetime:
-        db.update({parameter: utc_to_unix(value)}, Query().user_id == user_id)
+        db.update({parameter: utc_to_unix(value)}, Query().username == username)
     else:
-        db.update({parameter: value}, Query().user_id == user_id)
+        db.update({parameter: value}, Query().username == username)
 
-# Give user_id and parameter; return parameter value with time parsing (FLOATS RESERVED FOR UNIX)
-def get_parameter(user_id, parameter, db):
-    if db.contains(Query().user_id == user_id):
-        value = db.search(Query().user_id == user_id)[0][parameter]
+# Give username and parameter; return parameter value with time parsing (FLOATS RESERVED FOR UNIX)
+def get_parameter(username, parameter, db):
+    if db.contains(Query().username == username):
+        value = db.search(Query().username == username)[0][parameter]
         if type(value) is float:
             return unix_to_utc(value)
         else:

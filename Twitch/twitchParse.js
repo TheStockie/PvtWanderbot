@@ -42,12 +42,10 @@ function exeCommand(client, target, context, parsedCommand){
 
         case "join":
             exePython('join', client, context, target);
-            // exePython(`python ../FLDB/parseFLDB.py join ${context['user-id']}`, client, context, target, commandName[0]);
             break;
 
         case "balance":
             exePython('balance', client, context, target);
-            // exePython(`python ../FLDB/parseFLDB.py balance ${context['user-id']}`, client, context, target, commandName[0]);
             break;
 
         default:
@@ -58,7 +56,7 @@ function exeCommand(client, target, context, parsedCommand){
 function exePython(command, client, context, target){
     switch(command){
         case 'join':
-            exec(`python ../FLDB/parseFLDB.py join ${context['user-id']}`, (error, stdout, stderr) => {
+            exec(`python ../FLDB/parseFLDB.py join ${context['username']}`, (error, stdout, stderr) => {
                 if (error) {
                     console.log(`error: ${error.message}`);
                     return;
@@ -77,7 +75,7 @@ function exePython(command, client, context, target){
             break;
 
         case 'balance':
-            exec(`python ../FLDB/parseFLDB.py balance ${context['user-id']}`, (error, stdout, stderr) => {
+            exec(`python ../FLDB/parseFLDB.py balance ${context['username']}`, (error, stdout, stderr) => {
                 if (error) {
                     console.log(`error: ${error.message}`);
                     return;

@@ -4,8 +4,11 @@ from tinydb import TinyDB
 import auxFunc
 import dbFactory
 
-test_route = '../PvtWanderBot/FLDB/test.json'
-test_db = dbFactory.create_db(test_route)
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+test_db = TinyDB(os.getenv('TEST_ROUTE'))
 
 def test_time_converter():
     utc_date = datetime.now()
@@ -16,24 +19,24 @@ def test_time_converter():
     print("UTC to UNIX to UTC: " + auxFunc.unix_to_utc(auxFunc.utc_to_unix(utc_date)))
 
 def test_db_creation():
-    dbFactory.create_db(test_route)
+    dbFactory.create_db(os.getenv('TEST_ROUTE'))
 
 def test_db_clear():
     dbFactory.clear_db(test_db)
 
 def test_user_creation():
-    dbFactory.create_user(122456, test_db)
-    dbFactory.create_user(123456, test_db)
+    dbFactory.create_user('stockiestreams', test_db)
+    dbFactory.create_user('tiktak12', test_db)
 
 def test_user_removal():
     dbFactory.remove_user(122456, test_db)
 
 def test_user_update():
-    dbFactory.update_parameter(122456, 'points', 1000, test_db)
+    dbFactory.update_parameter('stockiestreams', 'points', 1000, test_db)
 
 def test_get_parameter():
-    print('Points: ' + str(dbFactory.get_parameter(122456, 'points', test_db)))
-    print('Last Watched: ' + str(dbFactory.get_parameter(122456, 'last_watched', test_db)))
+    print('Points: ' + str(dbFactory.get_parameter('stockiestreams', 'points', test_db)))
+    #print('Last Watched: ' + str(dbFactory.get_parameter(122456, 'last_watched', test_db)))
 
 def test_remove_parameter():
     dbFactory.remove_parameter('points', test_db)
