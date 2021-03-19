@@ -3,10 +3,6 @@ from tinydb.operations import delete
 from datetime import datetime
 from auxFunc import utc_to_unix, unix_to_utc
 
-import os
-from dotenv import load_dotenv
-load_dotenv()
-
 # Create db
 def create_db(route):
     return TinyDB(route)
