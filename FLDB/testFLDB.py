@@ -4,10 +4,6 @@ from tinydb import TinyDB
 import auxFunc
 import dbFactory
 
-import os
-from dotenv import load_dotenv
-load_dotenv()
-
 test_route = '../PvtWanderBot/FLDB/test.json'
 test_db = dbFactory.create_db(test_route)
 
@@ -26,14 +22,28 @@ def test_db_clear():
     dbFactory.clear_db(test_db)
 
 def test_user_creation():
-    dbFactory.create_user('122456', test_db)
+    dbFactory.create_user(122456, test_db)
+    dbFactory.create_user(123456, test_db)
 
 def test_user_removal():
-    dbFactory.remove_user('TikTak', test_db)
+    dbFactory.remove_user(122456, test_db)
+
+def test_user_update():
+    dbFactory.update_parameter(122456, 'points', 1000, test_db)
+
+def test_get_parameter():
+    print('Points: ' + str(dbFactory.get_parameter(122456, 'points', test_db)))
+    print('Last Watched: ' + str(dbFactory.get_parameter(122456, 'last_watched', test_db)))
+
+def test_remove_parameter():
+    dbFactory.remove_parameter('points', test_db)
 
 if __name__ == "__main__":
     test_time_converter()
     test_user_creation()
-    # test_user_removal()
+    test_user_removal()
     test_db_creation()
     test_db_clear()
+    test_user_update()
+    test_get_parameter()
+    test_remove_parameter()
